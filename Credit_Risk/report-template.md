@@ -2,26 +2,23 @@
 
 ## Overview of the Analysis
 
-In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
+In this section, describe the analysis you completed for the machine learning models used in this Challenge:
 
-* Explain the purpose of the analysis.
-* Explain what financial information the data was on, and what you needed to predict.
-* Provide basic information about the variables you were trying to predict (e.g., `value_counts`).
-* Describe the stages of the machine learning process you went through as part of this analysis.
-* Briefly touch on any methods you used (e.g., `LogisticRegression`, or any other algorithms).
+The purpose of this analysis was to create a machine learning model that predicts if a loan would be healthy, or be at high risk of defaulting. I trained this model using data such as:loan size, interest rate, borrower income, debt to income ratio, total debt, number of accounts, and derogatory marks.
+
+To create this model, I assigned the loan status to the y and the rest of the features to x, and split the overall dataset into a training and testing datasets using "train_test_split". I then fit a logistic regression model on the training data, and had that model make predictions on the testing data. A classification report gave the accuracy results of the model.
+
 
 ## Results
 
 Using bulleted lists, describe the accuracy scores and the precision and recall scores of all machine learning models.
 
-* Machine Learning Model 1:
-    * Description of Model 1 Accuracy, Precision, and Recall scores.
+- Accuracy Score: Accuracy score is the total correct predictions divided by total predictions. Is the overall accuracy of the entirety of the model. 
+- Precision Score: Precision score is true positive predictions divided by all positive predictions. Essentially, how accurate positive predicitions are by the model.
+- Recall Score: Recall score is true positive predictions divided by all positives in the dataset. Essentially, how good is the model at identifying positive instances.
 
 ## Summary
 
-Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. For example:
+Summarize the results of the machine learning model:
 
-* Which one seems to perform best? How do you know it performs best?
-* Does performance depend on the problem we are trying to solve? (For example, is it more important to predict the `1`'s, or predict the `0`'s? )
-
-If you do not recommend any of the models, please justify your reasoning.
+The model predicts the healthy loans very accurately. The model predicts high-risk loans pretty well also, but has more false positives than false negatives as shown by its lower precision score. Overall , even though the model is prone to some false positive results on high risk loans, the model has accurate predicitions overall. And in the conext of identifying high risk loans, it is better to have more false positives and be safe rather than sorry. This makes the recall score of .94 more important, as false negatives (high risk loans deemed healthy) would be more detrimental. The model is pretty accurate, but if the company can't withstand high risk loans going undetected 6% of the time, it would be understandable to not use the model.
